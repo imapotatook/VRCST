@@ -55,8 +55,15 @@ def show_notification(title, message):
 # Chemins constants
 user_directory = os.path.expanduser("~")
 LOGS_PATH = os.path.join(user_directory, "Logs")
-PATH = os.path.join(user_directory, "AppData", "LocalLow", "VRChat", "VRChat", "Cache-WindowsPlayer")
 
+# add custom proton prefix location support eventually
+if platform == "linux" or platform == "linux2":
+    PATH = os.path.join(user_directory, ".steam", "steam", "steamapps", "compatdata", "438100", "pfx", "drive_c", "users", "steamuser", "AppData", "LocalLow", "VRChat", "VRChat", "Cache-WindowsPlayer")
+elif platform == "darwin":
+    print(f"MacOS is not supported")
+    quit()
+elif platform == "win32":
+    PATH = os.path.join(user_directory, "AppData", "LocalLow", "VRChat", "VRChat", "Cache-WindowsPlayer")
 # VERSION DU LOGICIEL :
 version = "2.0.0"
 
