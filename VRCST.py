@@ -70,7 +70,7 @@ def get_auth_cookie(auth_cookie_path):
                     return auth_cookie_value
     return None
 
-local_script_path = "VRCST.py"
+local_script_path = os.path.abspath(os.path.dirname(__file__))
 user_agent = 'VRCST / Kawaii Squad Studio'
 auth_cookie_path = 'LocalDB/temps/AuthCookie.txt'
 friendlist_folder = 'LocalDB/infos'
