@@ -222,9 +222,14 @@ def login_to_vrchat():
             username = input("Enter your VRChat username: ")
             password = getpass.getpass("Enter your VRChat password: ")
 
-            configuration = Configuration(
-                username=username,
-                password=password,
+            # Encode credentials
+            encoded_username = quote(username)
+            encoded_password = quote(password)
+            
+            # Set up configuration
+            configuration = vrchatapi.Configuration(
+                username=encoded_username,
+                password=encoded_password,
             )
 
             with ApiClient(configuration) as api_client:
